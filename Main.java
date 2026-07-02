@@ -65,39 +65,42 @@ public class Main
 		expireYear = 2022;
 		
 		//additional variables to help cleanup long print's below
-		uscisNum = uscisNum1 + "-" + uscisNum2 + "-" + uscisNum3;
-		dateOfBirth = birthDay + " " + birthMonth + " " + birthYear;
-		validDate = validMonth + "/" + validDay + "/" + validYear;
-		expireDate = expireMonth + "/" + expireDay + "/" + expireYear;
-		
+		uscisNum = String.format("%03d-%03d-%03d", uscisNum1, uscisNum2, uscisNum3);
+	    //uscisNum1 + "-" + uscisNum2 + "-" + uscisNum3;
+		dateOfBirth = String.format("%02d %s %d", birthDay, birthMonth, birthYear);
+		//dateOfBirth = birthDay + " " + birthMonth + " " + birthYear;
+		validDate = String.format("%02d/%02d/%4d", validMonth, validDay, validYear);
+		//validDate = validMonth + "/" + validDay + "/" + validYear;
+		expireDate = String.format("%02d/%02d/%4d", expireMonth, expireDay, expireYear);
+		//expireDate = expireMonth + "/" + expireDay + "/" + expireYear;
+
+
 		//INPUT + CALCULATION SECTION
 		//N/A
 		
 		//OUTPUT SECTION
-		System.out.println("╔══════════════════════════════════════════════════════════════════════╗");
-		System.out.println("║           " + TITLE_USA + "                                   ║");
-		System.out.println("║                               " + TITLE_EAC + "          ║");
+		System.out.printf("╔══════════════════════════════════════════════════════════════════════╗%n");
+		System.out.printf("║%20s%20s%n", TITLE_USA , "");
+		System.out.printf("║%31s%10s%n", TITLE_EAC , "");
+		System.out.printf("║%32s%25s%n", LABEL_SURNAME , "");
+		System.out.printf("║%32s%25s%n", ASCII_ART_0 + LABEL_GIVEN_NAME , "");
+		System.out.printf("║%29s%10s%n", ASCII_ART_1 + givenName , "");
+		System.out.printf("║%29s%10s%n", ASCII_ART_2 + LABEL_USCIS_NUM + LABEL_CATEGORY + LABEL_CARD_NUM, "");
+		System.out.printf("║%29s%10s%n", ASCII_ART_3 + uscisNum + category + cardNum, "");
 		
-		System.out.println("║                         " + LABEL_SURNAME + "║");
-		System.out.println("║                         " + surname + "║");
-		System.out.println("║" + ASCII_ART_0 + LABEL_GIVEN_NAME + "║");
-		System.out.println("║" + ASCII_ART_1 + givenName + "║");
-		System.out.println("║" + ASCII_ART_2 + LABEL_USCIS_NUM + LABEL_CATEGORY + LABEL_CARD_NUM + "║");
-		System.out.println("║" + ASCII_ART_3 + uscisNum + category + cardNum + "║");
+		System.out.printf("║%29s%10s%n", ASCII_ART_4 + LABEL_BIRTH_COUNTRY, "");
+		System.out.printf("║%29s%10s%n", ASCII_ART_5 + birthCountry, "");
+		System.out.printf("║%29s%10s%n", ASCII_ART_6 + LABEL_TERMS_CONDITIONS, "");
+		System.out.printf("║%29s%10s%n", ASCII_ART_7 + termsAndConditions, "");
 		
-		System.out.println("║" + ASCII_ART_4 + LABEL_BIRTH_COUNTRY + "║");
-		System.out.println("║" + ASCII_ART_5 + birthCountry + "║");
-		System.out.println("║" + ASCII_ART_6 + LABEL_TERMS_CONDITIONS + "║");
-		System.out.println("║" + ASCII_ART_7 + termsAndConditions + "║");
+		System.out.printf("║%29s%10s%n", ASCII_ART_8 + LABEL_BIRTH_DATE + LABEL_SEX, "");
+		System.out.printf("║%29s%10s%n", ASCII_ART_9 + dateOfBirth + sex, "");
 		
-		System.out.println("║" + ASCII_ART_8 + LABEL_BIRTH_DATE + LABEL_SEX + "║");
-		System.out.println("║" + ASCII_ART_9 + dateOfBirth + sex + "║");
+		System.out.printf("║%45s%10s%n", LABEL_VALID_DATE + validDate, "");
+		System.out.printf("║%46s%10s%n", LABEL_EXPIRE_DATE + expireDate, "");
 		
-		System.out.println("║                         " + LABEL_VALID_DATE + validDate + "║");
-		System.out.println("║                         " + LABEL_EXPIRE_DATE + expireDate + "║");
-		
-		System.out.println("║" + ASCII_CREDIT + LABEL_REENTRY_DISCLAIMER + "║");
-		System.out.println("╚══════════════════════════════════════════════════════════════════════╝");
+		System.out.printf("║%45s%10s%n", ASCII_CREDIT + LABEL_REENTRY_DISCLAIMER, "");
+		System.out.printf("╚══════════════════════════════════════════════════════════════════════╝");
 		
 	}
 }
